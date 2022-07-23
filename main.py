@@ -1,37 +1,33 @@
-from turtle import Turtle, Screen
+# Imports
+from snake import Snake
+from turtle import Screen
 import random
+import time
 
+# Screen
+window = Screen()
+window.setup(600, 600)
+window.bgcolor('black')
+window.title("Snake Game")
+window.tracer(0)
 
-def left():
-    snake.setheading(180)
+# Snake
+snake = Snake()
 
-def right():
-    snake.setheading(0)
+left = window.onkey(snake.left, "Left")
+right = window.onkey(snake.right, "Right")
+up = window.onkey(snake.up, "Up")
+down = window.onkey(snake.down, "Down")
+window.listen()
 
-def up():
-    snake.setheading(90)
+# Initialize game
+game_on = True
 
-def down():
-    snake.setheading(270)
+# Run game
+while game_on:
+    window.update()
+    time.sleep(0.1)
 
-
-screen = Screen()
-snake = Turtle('turtle')
-screen.bgcolor('black')
-screen.title("Snake Game")
-screen.listen()
-screen.onkey(left, "Left")
-screen.onkey(right, "Right")
-screen.onkey(up, "Up")
-screen.onkey(down, "Down")
-
-while True:
-    snake.pu()
-    snake.forward(1)
-
-
-
-
-screen.listen()
-
-screen.exitonclick()
+    snake.move()
+    
+window.exitonclick()
