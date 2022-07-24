@@ -2,7 +2,7 @@
 from snake import Snake
 from turtle import Screen
 from food import Food
-import random
+from scoreboard import Scoreboard
 import time
 
 # Screen
@@ -12,9 +12,10 @@ window.bgcolor('black')
 window.title("Snake Game")
 window.tracer(0)
 
-# Snake
+# Objects
 snake = Snake()
 food = Food()
+scoreboard = Scoreboard()
 
 # Key controls
 window.listen()
@@ -31,9 +32,12 @@ while game_on:
     window.update()
     time.sleep(0.1)
     snake.move()
+
     
     if snake.head.distance(food) < 15:
         food.refresh()
+        scoreboard.score_inc()
+        scoreboard.update_scoreboard()
 
 
 window.exitonclick()
