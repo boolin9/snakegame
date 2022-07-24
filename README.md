@@ -1,2 +1,3 @@
-# snakegame
+# Snake Game
 Pythonian snake game 
+
