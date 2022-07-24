@@ -1,6 +1,7 @@
 # Imports
 from snake import Snake
 from turtle import Screen
+from food import Food
 import random
 import time
 
@@ -13,12 +14,14 @@ window.tracer(0)
 
 # Snake
 snake = Snake()
+food = Food()
 
+# Key controls
+window.listen()
 left = window.onkey(snake.left, "Left")
 right = window.onkey(snake.right, "Right")
 up = window.onkey(snake.up, "Up")
 down = window.onkey(snake.down, "Down")
-window.listen()
 
 # Initialize game
 game_on = True
@@ -27,7 +30,10 @@ game_on = True
 while game_on:
     window.update()
     time.sleep(0.1)
-
     snake.move()
     
+    if snake.head.distance(food) < 15:
+        food.refresh()
+
+
 window.exitonclick()
