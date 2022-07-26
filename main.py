@@ -42,7 +42,7 @@ while game_on:
         scoreboard.score_inc()
 
     # Detect collision with wall
-    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+    if snake.head.xcor() > 290 or snake.head.xcor() < -300 or snake.head.ycor() > 300 or snake.head.ycor() < -295:
         scoreboard.game_over()
         restart = window.textinput("GAME OVER", "Do you want to play again? (Y/N)").lower()
         if restart == 'y':
