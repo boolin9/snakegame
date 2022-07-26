@@ -17,7 +17,6 @@ snake = Snake()
 food = Food()
 scoreboard = Scoreboard()
 
-
 # Key controls
 def controls():
     window.listen()
@@ -25,7 +24,6 @@ def controls():
     window.onkey(snake.right, "Right")
     window.onkey(snake.up, "Up")
     window.onkey(snake.down, "Down")
-
 
 # Initialize game
 game_on = True
@@ -52,8 +50,6 @@ while game_on:
             scoreboard.reset()
             snake.reset()
         else:
-            scoreboard.reset()
-            scoreboard.game_over()
             game_on = False
             
 
@@ -67,9 +63,9 @@ while game_on:
                 scoreboard.reset()
                 snake.reset()
             else:
-                scoreboard.reset()
-                scoreboard.game_over()
                 game_on = False
+
+
 
 
 window.exitonclick()
